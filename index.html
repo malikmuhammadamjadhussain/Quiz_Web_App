@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT Quiz Web Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./Yellow Black Playful Lamp Bulb Idea Company Logo.png" type="image/x-icon">
+</head>
+<body>
+    <div id="time-display"></div>
+    <div class="logo-container">
+        <img src="Yellow Black Playful Lamp Bulb Idea Company Logo.png" alt="SMIT Quiz Logo" class="quiz-logo">
+    </div>
+    <div id="student-form" class="student-form">
+        <h2>Student Information</h2>
+        <form id="student-info-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+            </div>
+            <div class="form-group">
+                <label for="rollNo">Roll No:</label>
+                <input type="text" id="rollNo" name="rollNo" required>
+            </div>
+            <div class="form-group">
+                <label for="timing">Timing:</label>
+                <input type="text" id="timing" name="timing" required>
+            </div>
+            <div class="form-group">
+                <label for="campus">Campus:</label>
+                <input type="text" id="campus" name="campus" required>
+            </div>
+            <div class="form-group">
+                <label for="teacherName">Teacher Name:</label>
+                <input type="text" id="teacherName" name="teacherName" required>
+            </div>
+            <button type="submit" id="start-quiz-btn">Start Quiz</button>
+        </form>
+    </div>
+    <div class="quiz-container hidden">
+        <div id="quiz">
+            <div id="question-container">
+                <span id="qNo"></span>
+                <span id="question-text"></span>
+                <div id="options-container"></div>
+            </div>
+            <div id="navigation-buttons">
+                <button id="prev-btn" onclick="previousQuestion()">Previous</button>
+                <button id="next-btn" onclick="nextQuestion()">Next</button>
+                <button id="submit-btn" onclick="submitQuiz()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quiz result</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeResultModal()"></button>
+                </div>
+                <div id="student-info"></div>
+                <span id="attemtedMsg" style="margin-left: 30px; margin-top: 20px;"></span>
+                <div class="modal-body" id="resultSmallDiv"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeResultModal()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="restartQuiz()">Restart Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" id="showCorrectAns" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Correct Answer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeResultModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="question"></span>
+                    <span id="Cans"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeResultModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
