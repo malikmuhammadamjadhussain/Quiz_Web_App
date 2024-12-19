@@ -163,3 +163,7 @@ button:disabled {
     display: block;
     border-radius: 10px;
 }
+#c_ans_q{
+    display: flex;
+    flex-direction: column;
+  }
