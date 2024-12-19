@@ -228,6 +228,7 @@ var selectedArray = [];
 var countdownInterval;
 var indexes = [];
 var studentData = {};
+var score=0;
 
 function executeAfter30Minutes() {
     submitQuiz();
@@ -410,10 +411,14 @@ function colorBG() {
 
 function openQuestion(ans, que) {
     document.getElementById("showCorrectAns").style.display = "block";
-    document.getElementById("question").textContent = que;
+    document.getElementById("divForReult").style.display = "none";
+    document.getElementById("question").textContent = "Q: "+que;
     document.getElementById("Cans").textContent = ans;
+  }
+function closeClickedDiv(){
+  document.getElementById("showCorrectAns").style.display="none"
+  document.getElementById("divForReult").style.display="block"
 }
-
 function showResult() {
     var attemtedQuizes = selectedArray.length;
     var skipedQuizes = Qdata.length - attemtedQuizes;
@@ -446,6 +451,7 @@ function showResult() {
                 // Check if the selected option is correct
                 if (selectedArray[j].selectdOpt === Qdata[i].correctOption) {
                     showResult.style.backgroundColor = "#48bb78";
+                    score+=1
                 } else {
                     showResult.style.backgroundColor = "#f56565"; 
                 }
@@ -454,6 +460,7 @@ function showResult() {
             }
         }
     }
+  document.getElementById("scoreMsg").textContent ="Score "+score+" out of "+Qdata.length;
 }
 
 document.getElementById('student-info-form').addEventListener('submit', startQuiz);
